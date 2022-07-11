@@ -1,0 +1,27 @@
+{
+  "version": "0.0.1",
+  "scope": "beyond-js",
+  "name": "counter-react-widget",
+  "modules": {
+    "path": "./modules"
+  },
+  "deployment": {
+    "distributions": [
+      {
+        "name": "web",
+        "platform": "web",
+        "environment": "development",
+        "port": 6500,
+        "default": true
+      },
+      {
+        "name": "npm",
+        "npm": {
+          "platforms": {
+            "web": "web"
+          }
+        }
+      }
+    ]
+  }
+}
