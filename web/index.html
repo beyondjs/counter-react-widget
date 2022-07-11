@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Include Widget Counter</title>
+    <script src="https://unpkg.com/@beyond-js/kernel@0.0.19/vendor/require.min.js"></script>
+    <script>
+        window.__beyond_config = {
+            application: {
+                languages: {supported: ['en'], default: 'en'},
+                package: 'counter-react-widget'
+            },
+            distribution: {}
+        };
+
+        const unpkg = 'https://unpkg.com/';
+        const kernel = '@beyond-js/kernel@0.0.19/';
+        const widgets = '@beyond-js/widgets@0.0.8/';
+        const react = '@beyond-js/react-widgets@18.18.0/';
+        const paths = {
+            '@beyond-js/kernel/core': `${unpkg}${kernel}core/core.amd`,
+            '@beyond-js/kernel/bundle': `${unpkg}${kernel}bundle/bundle.amd`,
+            '@beyond-js/kernel/styles': `${unpkg}${kernel}styles/styles.amd`,
+            '@beyond-js/kernel/routing': `${unpkg}${kernel}routing/routing.amd`,
+            '@beyond-js/widgets/controller': `${unpkg}${widgets}controller/controller.amd`,
+            '@beyond-js/widgets/routing': `${unpkg}${widgets}routing/routing.amd`,
+            '@beyond-js/widgets/render': `${unpkg}${widgets}render/render.amd`,
+            '@beyond-js/react-widgets/controllers': `${unpkg}${react}controllers/controllers.amd`,
+            'react': `${unpkg}react@18.2.0/umd/react.development`,
+            'react-dom/client': `${unpkg}react-dom@18.2.0/umd/react-dom.development`
+        };
+        console.log(paths)
+        require.config({paths});
+
+        const counter = '@beyond-js/counter-react-widget@1.0.1/counter-react/counter-react.amd';
+        require([`${unpkg}${counter}`]);
+    </script>
+</head>
+<body>
+<script>
+    const e = document.createElement('counter-react');
+    console.log(e);
+    document.body.append(e);
+</script>
+</body>
+</html>
