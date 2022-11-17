@@ -1,5 +1,5 @@
-import {ReactWidgetController} from '@beyond-js/react-widgets/controllers';
-import {Widget} from "./views/widget";
+import {ReactWidgetController} from '@beyond-js/react-widgets/base';
+import {Widget} from "./views";
 
 export /*bundle*/
 class Controller extends ReactWidgetController {

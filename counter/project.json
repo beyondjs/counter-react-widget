@@ -1,5 +1,5 @@
 {
-  "version": "0.0.1",
+  "version": "1.0.3",
   "scope": "beyond-js",
   "name": "counter-react-widget",
   "modules": {
@@ -11,8 +11,20 @@
         "name": "web",
         "platform": "web",
         "environment": "development",
-        "port": 6500,
-        "default": true
+        "ports": {
+          "bundles": 6500
+        }
+      },
+      {
+        "name": "tsc",
+        "platform": "web",
+        "environment": "development",
+        "ts": {
+          "compiler": "tsc"
+        },
+        "ports": {
+          "bundles": 6501
+        }
       },
       {
         "name": "npm",

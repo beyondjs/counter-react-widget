@@ -1,8 +1,8 @@
 {
-  "name": "counter-react",
+  "name": "main",
   "widget": {
     "element": {
-      "name": "counter-react"
+      "name": "main-wd"
     },
     "sass": {
       "path": "/widget/scss",
