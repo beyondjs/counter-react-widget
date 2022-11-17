@@ -50,9 +50,10 @@
                 console.warn(id, `\n`, url)
                 return url;
             }
-
             const [scope, pkg, bundle] = id.split('/');
-            console.log('beyond', `\n`, `${unpkg}${id}/${bundle}.sjs.js`)
+            if (id === '@beyond-js/counter-react-widget/config') {
+                return `${url}config/config.sjs.js`;
+            }
             return `${unpkg}${id}/${bundle}.sjs.js`;
         };
         const beyond = new Set(['@beyond-js/counter-react-widget/main']);
