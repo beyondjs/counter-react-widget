@@ -35,7 +35,9 @@
     <script type="module">
         const externals = new Map();
         externals.set('react', 'https://cdn.jsdelivr.net/gh/beyondjs/counter-react-widget/react.js');
-        externals.set('react-dom/client', 'https://cdn.jsdelivr.net/gh/beyondjs/counter-react-widget/react-dom.js');
+        externals.set('react-dom', 'https://cdn.jsdelivr.net/gh/beyondjs/counter-react-widget/react-dom.js');
+        externals.set('react-dom/client', 'https://cdn.jsdelivr.net/gh/beyondjs/counter-react-widget/react-dom-client.js');
+        externals.set('scheduler', 'https://cdn.jsdelivr.net/gh/beyondjs/counter-react-widget/scheduler.js');
 
         const unpkg = 'https://unpkg.com/';
         const {specifier, vspecifier} = window.__app_package;
