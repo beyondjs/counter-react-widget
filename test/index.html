@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Counter Test</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+
+    <script>
+        window.__app_package = {
+            "specifier": "@tests/counter-test",
+            "vspecifier": "@tests/counter-test@1.0.0",
+            "version": "1.0.0",
+            "dependencies": []
+        };
+
+        // Set global baseDir and baseUrl variables
+        const baseDir = window.baseDir = '/';
+        const baseUrl = window.baseUrl = (() => {
+            const {protocol, host, pathname} = location;
+            if (protocol === 'file:') {
+                const path = pathname.split('/');
+                path.pop(); // Remove 'index.html'
+                path.join('/');
+                return `file://${path.join('/')}`;
+            }
+            else {
+                return `${protocol}//${host}${baseDir}`;
+            }
+        })();
+    </script>
+
+    <script src="https://unpkg.com/@beyond-js/kernel@0.1.1/vendor/s.js"></script>
+    <script type="module">
+        const externals = new Map();
+        externals.set('react', '18.2.0');
+        externals.set('react-dom/client', '18.2.0');
+
+        const unpkg = 'https://unpkg.com/';
+        const {specifier, vspecifier} = window.__app_package;
+        const baseDir = '/';
+        System.constructor.prototype.resolve = (id, parent) => {
+            if (externals.has(id)) {
+                const version = externals.get(id);
+                console.warn(id, `\n`, `${unpkg}${id}@${version}/umd/${id}.production.min.js`)
+                return `${unpkg}${id}@${version}/umd/${id}.production.min.js`;
+            }
+
+            const [scope, pkg, bundle] = id.split('/');
+            console.log('beyond', `\n`, `https://unpkg.com/${id}/${bundle}.sjs.js`)
+            return `https://unpkg.com/${id}/${bundle}.sjs.js`;
+        };
+        const beyond = new Set(['@beyond-js/counter-react-widget@1.0.2/main']);
+        beyond.forEach(dependecy => System.import(dependecy));
+    </script>
+</head>
+
+<body>
+<div id="beyond-topbar"></div> <!-- top bar for iOS -->
+</body>
+</html>
