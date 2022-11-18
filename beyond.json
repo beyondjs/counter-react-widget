@@ -1,5 +1,7 @@
 {
-  "applications": "projects.json",
+  "applications": [
+    "/counter/project.json"
+  ],
   "bundles": {},
   "libraries": []
 }

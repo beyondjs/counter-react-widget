@@ -1,8 +1,8 @@
 {
-  "name": "main",
+  "name": "counter",
   "widget": {
     "element": {
-      "name": "main-wd"
+      "name": "counter-widget"
     },
     "sass": {
       "path": "/widget/scss",

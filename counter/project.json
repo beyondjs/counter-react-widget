@@ -23,17 +23,6 @@
         }
       },
       {
-        "name": "tsc",
-        "platform": "web",
-        "environment": "development",
-        "ts": {
-          "compiler": "tsc"
-        },
-        "ports": {
-          "bundles": 6501
-        }
-      },
-      {
         "name": "npm",
         "npm": {
           "platforms": {

@@ -6,9 +6,9 @@ function Widget() {
     const add = () => setCount(count + 1);
 
     return (
-        <div className="item" onClick={add}>
+        <div className="item">
             <h3>React counter</h3>
-            <span>clicks here: {count}</span>
+            <button onClick={add}>click here: {count}</button>
         </div>
     );
 }

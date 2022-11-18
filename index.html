@@ -33,31 +33,24 @@
 
     <script src="https://unpkg.com/@beyond-js/kernel@0.1.1/vendor/s.js"></script>
     <script type="module">
-        const url = `https://cdn.jsdelivr.net/gh/beyondjs/counter-react-widget/`;
+        const url = `https://cdn.jsdelivr.net/gh/beyondjs/counter-react-widget/dependencies/`;
         const externals = new Map();
         externals.set('react', `${url}react.js`);
-        externals.set('react-dom', `${url}dependencies/react-dom.js`);
-        externals.set('react-dom/client', `${url}dependencies/react-dom-client.js`);
-        externals.set('scheduler', `${url}dependencies/scheduler.js`);
+        externals.set('react-dom', `${url}react-dom.js`);
+        externals.set('scheduler', `${url}scheduler.js`);
+        externals.set('react-dom/client', `${url}react-dom-client.js`);
 
         const unpkg = 'https://unpkg.com/';
         const {specifier, vspecifier} = window.__app_package;
         const baseDir = '/';
         System.constructor.prototype.resolve = (id, parent) => {
-            console.log(1, id, parent)
-            if (externals.has(id)) {
-                const url = externals.get(id);
-                console.warn(id, `\n`, url)
-                return url;
-            }
-            const [scope, pkg, bundle] = id.split('/');
-            if (id === '@beyond-js/counter-react-widget/config') {
-                return `${url}config/config.sjs.js`;
-            }
+            if (externals.has(id)) return externals.get(id);
+
+            const [, , bundle] = id.split('/');
             return `${unpkg}${id}/${bundle}.sjs.js`;
         };
-        const beyond = new Set(['@beyond-js/counter-react-widget/main']);
-        beyond.forEach(dependecy => System.import(dependecy));
+
+        System.import('@beyond-js/widgets/render').then(({widgets}) => window.widgets = widgets);
     </script>
 </head>
 
