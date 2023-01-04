@@ -1,17 +1,12 @@
 {
   "name": "@beyond-js/counter-react-widget",
-  "version": "1.0.4",
-  "description": "",
-  "author": "",
   "license": "MIT",
   "dependencies": {
-    "@beyond-js/widgets": "^0.1.0",
-    "@beyond-js/react-widgets": "^18.20.1"
+    "socket.io-client": "^4.5.4",
+    "@beyond-js/react-widgets": "~18.20.4"
   },
   "devDependencies": {
-    "socket.io-client": "^4.5.3",
-    "@beyond-js/local": "^0.1.0",
-    "@types/react": "^18.0.12",
-    "@types/react-dom": "^18.0.5"
+    "@beyond-js/local": "^0.1.2",
+    "@types/react": "^18.0.26"
   }
 }
