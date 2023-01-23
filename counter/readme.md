@@ -1,2 +1,3 @@
-# counter-react-widget
-counter react widget package example
+# Counter React Widget with BeyondJS
+
+Package widget example

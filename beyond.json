@@ -1,6 +1,6 @@
 {
   "applications": [
-    "/counter/project.json"
+    "/counter/package.json"
   ],
   "bundles": {},
   "libraries": []

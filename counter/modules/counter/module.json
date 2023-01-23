@@ -1,5 +1,8 @@
 {
   "name": "counter",
+  "platforms": [
+    "web"
+  ],
   "widget": {
     "element": {
       "name": "counter-widget"

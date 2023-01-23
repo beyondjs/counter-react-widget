@@ -1,6 +1,38 @@
 {
   "name": "@beyond-js/counter-react-widget",
+  "version": "1.0.8",
   "license": "MIT",
+  "languages": {
+    "default": "en",
+    "supported": [
+      "en",
+      "es"
+    ]
+  },
+  "modules": {
+    "path": "./modules"
+  },
+  "deployment": {
+    "distributions": [
+      {
+        "name": "web",
+        "platform": "web",
+        "environment": "development",
+        "ports": {
+          "bundles": 6500
+        }
+      },
+      {
+        "name": "npm",
+        "maps": "external",
+        "npm": {
+          "platforms": {
+            "web": "web"
+          }
+        }
+      }
+    ]
+  },
   "dependencies": {
     "socket.io-client": "^4.5.4",
     "@beyond-js/react-widgets": "~18.20.4"
